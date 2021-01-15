@@ -14,9 +14,9 @@ var studente = {
 };
 
 // Stampo in console le proprietà dello studente
-for (var k in studente) {
+/* for (var k in studente) {
     console.log(`${k}: ${studente[k]}`);
-}
+} */
 
 // Creo array di oggetti formato dalle informazioni di più studenti
 var studenti = [
@@ -38,6 +38,27 @@ var studenti = [
 ];
 
 // Stampo in console nome e cognome di tutti gli studenti nell'array precedente
+/* for (var i = 0; i < studenti.length; i++) {
+    console.log(`nome: ${studenti[i].nome}`);
+    console.log(`cognome: ${studenti[i].cognome}`);
+} */
+
+// Creo variabili con prompt per inserimento dati nuovo studente
+var nomeNuovoStudente = prompt('Inserisci il nome');
+var cognomeNuovoStudente = prompt('Inserisci il cognome');
+var etaNuovoStudente = parseInt(prompt('Inserisci l\'età'));
+
+// Inserisco le variabili del nuovo studente all'interno di un oggetto
+var nuovoStudente = {
+    nome : nomeNuovoStudente,
+    cognome : cognomeNuovoStudente,
+    eta : etaNuovoStudente
+};
+
+// Pusho l'oggetto appena creato all'interno dell'array studenti
+studenti.push(nuovoStudente);
+
+// Stampo in console nome e cognome di tutti gli studenti nell'array
 for (var i = 0; i < studenti.length; i++) {
     console.log(`nome: ${studenti[i].nome}`);
     console.log(`cognome: ${studenti[i].cognome}`);
