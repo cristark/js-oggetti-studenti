@@ -44,9 +44,10 @@ var studenti = [
 } */
 
 // Creo variabili con prompt per inserimento dati nuovo studente
-var nomeNuovoStudente = prompt('Inserisci il nome');
-var cognomeNuovoStudente = prompt('Inserisci il cognome');
-var etaNuovoStudente = parseInt(prompt('Inserisci l\'età'));
+var nomeNuovoStudente = emptyCheck(nomeNuovoStudente, 'nome');
+var cognomeNuovoStudente = emptyCheck(cognomeNuovoStudente, 'cognome');
+var etaNuovoStudente = numberCheck(etaNuovoStudente, 'età');
+
 
 // Inserisco le variabili del nuovo studente all'interno di un oggetto
 var nuovoStudente = {
@@ -62,4 +63,29 @@ studenti.push(nuovoStudente);
 for (var i = 0; i < studenti.length; i++) {
     console.log(`nome: ${studenti[i].nome}`);
     console.log(`cognome: ${studenti[i].cognome}`);
+}
+
+// - Funzioni
+function emptyCheck(i, nome) {
+    var sentinel = true;
+    do {
+        var i = prompt(`Inserisci il ${nome}`);
+        if (i == '' || Math.abs(i) >= 0) {
+            alert(`Non hai inserito un ${nome} valido, riprova per favore`);
+        } else {
+            sentinel = false;
+        }
+    } while (sentinel);
+    return i
+}
+
+function numberCheck(i, eta) {
+
+    do {
+        var i = parseInt(prompt(`Inserisci l' ${eta}`));
+        if (isNaN(i)) {
+            alert(`Non hai inserito un' ${eta} valida, riprova per favore`);
+        }
+    } while (isNaN(i));
+    return i
 }
